@@ -78,4 +78,5 @@ while True:
 	hist = [int(x) for x in stdin.readline().split()]  # [6, 2, 5, 4, 5, 1, 6] 
 	if len(hist) == 1 and hist[0] == 0:
 		break
+	hist[0] = 0
 	stdout.write(str(max_area_histogram(hist)) + '\n')
