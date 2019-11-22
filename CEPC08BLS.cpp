@@ -5,6 +5,9 @@
 #define N 1000000
 #include <bits/stdc++.h>
 using namespace std;
+// line sweep : penalization -1 => if pos > pos+1 and pos > pos-1
+// or (+1  => pos < pos+1 and pos < pos-1)
+// input optimization is important
 class SkyCr
 {
 public:
@@ -43,6 +46,7 @@ int main()
       if (j != A[n - 1])
         A[n++] = j;
     }
+    // A store unique elements if continous repeated
     if (n > 1 && A[0] > A[1])
       v.push_back(SkyCr(A[0], -1));
     else if (n == 1)
@@ -66,6 +70,11 @@ int main()
         ans += v[i].penal;
       printf("%d ", ans);
     }
+
+    // for( int k = 0; k<v.size(); k++) {
+    //   printf("h = %d \n", v[k].h);
+    //   printf("penal = %d \n", v[k].penal);
+    // }
     printf("\n");
   }
 }
